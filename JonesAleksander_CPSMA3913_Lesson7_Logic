@@ -1,0 +1,242 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "Untitled0.ipynb",
+      "provenance": [],
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/AlekJones/Discrete_Math-39193-01-/blob/main/JonesAleksander_CPSMA3913_Lesson7_Logic\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "YCJaepmmfKrS"
+      },
+      "source": [
+        "# Project Part # 7 : CPSMA 3133 [Dr. Jacob's](https://github.com/nurfnick) Discrete Mathematics \n",
+        "\n",
+        "## Logic\n",
+        "\n",
+        "### Alek Jones\n",
+        "\n",
+        "\n"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "Xs_Pvtua1Nnt"
+      },
+      "source": [
+        "## 1 Logic"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "2z6U1aB_fQDM"
+      },
+      "source": [
+        "This weeks assignment seems fairly straightforward.\n",
+        "\n",
+        "(a) Create three propositions. I will describe them as p, r and q but you should use the name to\n",
+        "describe the proposition! Discuss the truth value of each of these and decide on one that makes\n",
+        "sense for you.\n",
+        "\n",
+        "(b) Compute the truth of the statement r ∧ p, r ∨ ¬q and r ⇒ p.\n",
+        "\n",
+        "(c) Compute a complete truth table for ¬ (r ⊕ p) ⇒ (p ∨ q)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Our variables given are q, p, and r. So we must establish those. (I'll use football terms)"
+      ],
+      "metadata": {
+        "id": "Ox2fqEE0lbUj"
+      }
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "rU_BgC_kfH7g"
+      },
+      "source": [
+        "p: Cowboys won the superbowl = false #(always false)\n",
+        "q: The offensive play starts on the snap = true\n",
+        "r: Chiefs won the superbowl = true\n"
+      ],
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "Iggon6VK1Vxo"
+      },
+      "source": [
+        "Now its time to work the problem using these variables."
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "uXi6ll7cAj2o"
+      },
+      "source": [
+        "r ∧ p"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "This statement is false as the Cheifs and Cowboys bothe didnt win the superbowl."
+      ],
+      "metadata": {
+        "id": "dZwiUZKFn83J"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "r ∨ ¬q"
+      ],
+      "metadata": {
+        "id": "3vcfvAlWoK7k"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "This statement is also false. Although the cheifs won the superbowl, ¬q asks for the opposite which would mean that the play doesn's start on the snap..."
+      ],
+      "metadata": {
+        "id": "xu9w1grjoL_W"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "r ⇒ p"
+      ],
+      "metadata": {
+        "id": "T7p7ZXoKpDP_"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "This is true, as the cheifs won the superbowl it implies that the cowboys winning satifies the false declaration."
+      ],
+      "metadata": {
+        "id": "JhRkXQnZpFPL"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "ZGGIau0XBr8Z"
+      },
+      "source": [
+        "To develop the truth tables, I'll need to start with propositions not initialized to already have a truth value.  Let's play with the truth table for\n",
+        "$$ \\left(\\lnot r \\lor p\\right) \\Rightarrow \\left(q \\land p\\right)$$"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "z9qE2D8UKs8z"
+      },
+      "source": [
+        "The real trick to a truth table is to iterate through every possible truth value.  I do that with for loops below.  \n",
+        "\n",
+        "A more clever programmer could do this bitwise using python's bitwise `&|~` bitwise `and` `or` and `not` "
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Compute a complete truth table for ¬ (r ⊕ p) ⇒ (p ∨ q)"
+      ],
+      "metadata": {
+        "id": "UWmim0PVqh4Q"
+      }
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "fGi_S966B3Of",
+        "outputId": "ae5f9151-4e4a-49d3-87df-74d8b37711ec",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "source": [
+        "values = [True,False]\n",
+        "table = []\n",
+        "\n",
+        "for r in values:\n",
+        "  for p in values:\n",
+        "    for q in values: \n",
+        "      row =[]\n",
+        "      row.append(r)\n",
+        "      row.append(p)\n",
+        "      row.append(q)\n",
+        "      row.append(not(r))\n",
+        "      row.append(not(p))\n",
+        "      row.append(not (r) or (p))\n",
+        "      row.append((r)or(p))\n",
+        "      row.append((p)or(q))\n",
+        "      table.append(row)\n",
+        "\n",
+        "\n",
+        "print(table)"
+      ],
+      "execution_count": 4,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[[True, True, True, False, False, True, True, True], [True, True, False, False, False, True, True, True], [True, False, True, False, True, False, True, True], [True, False, False, False, True, False, True, False], [False, True, True, True, False, True, True, True], [False, True, False, True, False, True, True, True], [False, False, True, True, True, True, False, True], [False, False, False, True, True, True, False, False]]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Not the prettiest but I believe it get's the job done."
+      ],
+      "metadata": {
+        "id": "LH1MHTQlt3op"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "This project was interesting I just wish I was better at coding because I truly believe there is a way to do it all that way rather than text format."
+      ],
+      "metadata": {
+        "id": "MEIRqEJsuBqt"
+      }
+    }
+  ]
+}
